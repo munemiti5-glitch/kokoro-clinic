@@ -1,0 +1,7 @@
+# Netlify リダイレクト設定
+
+# 404エラーページ
+/*  /404.html  404
+
+# www付きからwwwなしへリダイレクト（ドメイン統一）
+# https://www.kokoro-clinic.example.com/*  https://kokoro-clinic.example.com/:splat  301

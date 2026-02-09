@@ -1,0 +1,151 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+# 日本語ロケール
+locale: "ja"
+
+collections:
+  # ============================================
+  # お知らせ（トップページに表示）
+  # ============================================
+  - name: "news"
+    label: "お知らせ"
+    folder: "_news"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{fields.date}} - {{fields.title}}"
+    sortable_fields: ["date"]
+    fields:
+      - label: "タイトル"
+        name: "title"
+        widget: "string"
+        required: true
+
+      - label: "投稿日"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DD"
+        date_format: "YYYY-MM-DD"
+        time_format: false
+        required: true
+
+      - label: "カテゴリ"
+        name: "category"
+        widget: "select"
+        options:
+          - { label: "お知らせ", value: "お知らせ" }
+          - { label: "休診情報", value: "休診情報" }
+          - { label: "診療変更", value: "診療変更" }
+          - { label: "コラム", value: "コラム" }
+        default: "お知らせ"
+
+      - label: "本文"
+        name: "body"
+        widget: "markdown"
+        required: true
+
+  # ============================================
+  # 医療コラム
+  # ============================================
+  - name: "column"
+    label: "医療コラム"
+    folder: "_column"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{fields.title}}"
+    fields:
+      - label: "タイトル"
+        name: "title"
+        widget: "string"
+        required: true
+
+      - label: "投稿日"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DD"
+        date_format: "YYYY-MM-DD"
+        time_format: false
+        required: true
+
+      - label: "カテゴリ"
+        name: "category"
+        widget: "select"
+        options:
+          - { label: "うつ病", value: "うつ病" }
+          - { label: "不安障害", value: "不安障害" }
+          - { label: "パニック障害", value: "パニック障害" }
+          - { label: "不眠症", value: "不眠症" }
+          - { label: "ストレス", value: "ストレス" }
+          - { label: "自律神経", value: "自律神経" }
+          - { label: "その他", value: "その他" }
+        default: "その他"
+
+      - label: "抜粋"
+        name: "excerpt"
+        widget: "text"
+        required: true
+
+      - label: "サムネイル画像"
+        name: "thumbnail"
+        widget: "image"
+        required: false
+
+      - label: "本文"
+        name: "body"
+        widget: "markdown"
+        required: true
+
+  # ============================================
+  # 固定ページの編集
+  # ============================================
+  - name: "pages"
+    label: "固定ページ"
+    files:
+      - label: "トップページ お知らせ欄"
+        name: "home-news"
+        file: "_data/home-news.md"
+        fields:
+          - label: "セクションタイトル"
+            name: "title"
+            widget: "string"
+            default: "お知らせ"
+
+          - label: "お知らせ一覧"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.date}} - {{fields.text}}"
+            fields:
+              - label: "日付"
+                name: "date"
+                widget: "string"
+
+              - label: "カテゴリ"
+                name: "category"
+                widget: "select"
+                options:
+                  - { label: "お知らせ", value: "news" }
+                  - { label: "休診", value: "closed" }
+                  - { label: "重要", value: "important" }
+                default: "news"
+
+              - label: "内容"
+                name: "text"
+                widget: "string"
+
+      - label: "診療時間・休診日"
+        name: "clinic-hours"
+        file: "_data/clinic-hours.md"
+        fields:
+          - label: "臨時休診のお知らせ"
+            name: "notice"
+            widget: "string"
+            required: false
+
+          - label: "補足説明"
+            name: "note"
+            widget: "text"
+            required: false

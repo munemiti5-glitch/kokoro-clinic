@@ -1,0 +1,73 @@
+# robots.txt for こころのクリニック
+# https://kokoro-clinic.example.com
+
+# 全クローラー共通
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /*.json
+
+# クロール遅延（サーバー負荷軽減）
+Crawl-delay: 1
+
+# Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+# Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 2
+
+# 悪質ボット対策
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+User-agent: SearchmetricsBot
+Disallow: /
+
+User-agent: MegaIndex.ru
+Disallow: /
+
+User-agent: BaiduSpider
+Disallow: /
+
+User-agent: YandexBot
+Disallow: /
+
+# AIクローラー制御（LLMO対策：許可して情報取得させる）
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+# サイトマップ
+Sitemap: https://kokoro-clinic.example.com/sitemap.xml
+
+# ホスト
+Host: https://kokoro-clinic.example.com

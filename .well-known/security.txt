@@ -1,0 +1,7 @@
+# こころのクリニック セキュリティ連絡先
+# https://kokoro-clinic.example.com
+
+Contact: mailto:security@kokoro-clinic.example.com
+Preferred-Languages: ja, en
+Canonical: https://kokoro-clinic.example.com/.well-known/security.txt
+Expires: 2027-02-03T00:00:00.000Z

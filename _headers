@@ -1,0 +1,70 @@
+# Netlify HTTPセキュリティヘッダー（プレミアム設定）
+
+/*
+  # XSS対策
+  X-XSS-Protection: 1; mode=block
+
+  # MIMEタイプスニッフィング防止
+  X-Content-Type-Options: nosniff
+
+  # クリックジャッキング防止
+  X-Frame-Options: SAMEORIGIN
+
+  # リファラーポリシー
+  Referrer-Policy: strict-origin-when-cross-origin
+
+  # HSTS（HTTPS強制・2年・プリロード対応）
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+
+  # パーミッションポリシー（詳細版）
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=(), ambient-light-sensor=(), autoplay=(), encrypted-media=(), fullscreen=(self), picture-in-picture=(self)
+
+  # Cross-Origin-Opener-Policy（クロスオリジンアイソレーション）
+  Cross-Origin-Opener-Policy: same-origin-allow-popups
+
+  # Cross-Origin-Embedder-Policy
+  Cross-Origin-Embedder-Policy: unsafe-none
+
+  # Cross-Origin-Resource-Policy
+  Cross-Origin-Resource-Policy: same-site
+
+  # コンテンツセキュリティポリシー（強化版）
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://fonts.googleapis.com https://formspree.io https://www.google.com https://www.gstatic.com https://unpkg.com https://identity.netlify.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://www.google.com https://maps.googleapis.com https://maps.gstatic.com; frame-src https://www.google.com https://formspree.io; connect-src 'self' https://formspree.io https://*.netlify.com https://*.netlify.app; base-uri 'self'; form-action 'self' https://formspree.io; frame-ancestors 'self'; upgrade-insecure-requests; block-all-mixed-content
+
+  # DNSプリフェッチ制御
+  X-DNS-Prefetch-Control: on
+
+# 静的アセットのキャッシュ（1年・イミュータブル）
+/css/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/js/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# フォント
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+  Access-Control-Allow-Origin: *
+
+# HTMLファイルのキャッシュ（短め・再検証必須）
+/*.html
+  Cache-Control: public, max-age=3600, must-revalidate
+
+# Service Worker
+/sw.js
+  Cache-Control: no-cache, no-store, must-revalidate
+
+# マニフェスト
+/manifest.json
+  Cache-Control: public, max-age=86400
+
+# セキュリティテキスト
+/.well-known/*
+  Cache-Control: public, max-age=86400
+
+# CMS管理画面（CSP緩和）
+/admin/*
+  Content-Security-Policy: default-src 'self' https://unpkg.com https://identity.netlify.com https://*.netlify.com https://*.netlify.app; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com https://identity.netlify.com; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data: blob: https:; connect-src 'self' https://*.netlify.com https://*.netlify.app https://api.github.com; frame-src 'self' https://identity.netlify.com

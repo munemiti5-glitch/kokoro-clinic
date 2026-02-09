@@ -1,0 +1,45 @@
+{
+    "name": "こころのクリニック｜心療内科・精神科",
+    "short_name": "こころのクリニック",
+    "description": "大阪なんば駅直結の心療内科・精神科。うつ病、不安障害、睡眠障害の治療。完全予約制・保険適用。",
+    "start_url": "/",
+    "scope": "/",
+    "display": "standalone",
+    "orientation": "portrait-primary",
+    "background_color": "#FAFBFC",
+    "theme_color": "#4A9B8C",
+    "lang": "ja",
+    "dir": "ltr",
+    "categories": ["health", "medical"],
+    "icons": [
+        {
+            "src": "images/favicon.svg",
+            "sizes": "any",
+            "type": "image/svg+xml",
+            "purpose": "any"
+        },
+        {
+            "src": "images/favicon.svg",
+            "sizes": "any",
+            "type": "image/svg+xml",
+            "purpose": "maskable"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "ご予約・お問い合わせ",
+            "url": "/contact.html",
+            "description": "お電話またはWebからご予約"
+        },
+        {
+            "name": "診療内容",
+            "url": "/services.html",
+            "description": "対応している症状・疾患"
+        },
+        {
+            "name": "よくある質問",
+            "url": "/faq.html",
+            "description": "初診・費用・治療について"
+        }
+    ]
+}
