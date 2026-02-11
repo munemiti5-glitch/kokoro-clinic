@@ -3005,3 +3005,249 @@ button:focus:not(:focus-visible) {
     .recruit-msg-grid > div { text-align: left; }
     .page-hero-img { height: 220px; }
 }
+
+/* ============================================
+   追加: 背景色味 + 丸み
+   元のデザインには触れず上書きで追加
+   ============================================ */
+
+/* --- 角丸を大きめに --- */
+:root {
+    --radius-sm: 8px;
+    --radius: 14px;
+    --radius-lg: 22px;
+    --radius-xl: 30px;
+}
+
+/* --- ボタンを丸く（pill型） --- */
+.btn { border-radius: 50px; }
+.nav-link--cta { border-radius: 50px; }
+
+/* --- body全体にうっすら色のグラデ --- */
+body {
+    background-image:
+        radial-gradient(ellipse at 10% 15%, rgba(74, 155, 140, 0.04) 0%, transparent 50%),
+        radial-gradient(ellipse at 85% 50%, rgba(232, 184, 109, 0.03) 0%, transparent 50%),
+        radial-gradient(ellipse at 30% 80%, rgba(74, 155, 140, 0.03) 0%, transparent 50%);
+    background-attachment: fixed;
+}
+
+/* --- セクション背景の色味に変化をつける --- */
+
+/* 当院について: 淡い緑 */
+.about {
+    background: linear-gradient(180deg, #eef6f3 0%, #f5f9f7 100%);
+    position: relative; overflow: hidden;
+    padding-bottom: calc(var(--section-padding) + 40px);
+}
+.about::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 50px;
+    background: var(--white);
+    clip-path: ellipse(55% 100% at 50% 100%);
+}
+
+/* 診療内容: 白 → 下に淡い緑の波 */
+.services {
+    position: relative; overflow: hidden;
+    padding-bottom: calc(var(--section-padding) + 40px);
+}
+.services::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 50px;
+    background: linear-gradient(180deg, transparent 0%, #eef6f3 100%);
+    clip-path: ellipse(54% 100% at 50% 100%);
+}
+
+/* 医師紹介: 淡い緑→白グラデ + 下波 */
+.doctor {
+    position: relative; overflow: hidden;
+    padding-bottom: calc(var(--section-padding) + 40px);
+}
+.doctor::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 50px;
+    background: var(--white);
+    clip-path: ellipse(53% 100% at 50% 100%);
+}
+
+/* 初めての方へ: 下波 */
+.first-visit {
+    position: relative; overflow: hidden;
+    padding-bottom: calc(80px + 40px);
+}
+.first-visit::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 50px;
+    background: var(--white);
+    clip-path: ellipse(55% 100% at 50% 100%);
+}
+
+/* スタッフ紹介: 白 → 下に淡いベージュ波 */
+.staff {
+    position: relative; overflow: hidden;
+    padding-bottom: calc(var(--section-padding) + 40px);
+}
+.staff::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 50px;
+    background: #f5f2ed;
+    clip-path: ellipse(54% 100% at 50% 100%);
+}
+
+/* コラムバナー: 下波 */
+.column-banner {
+    position: relative; overflow: hidden;
+    padding-bottom: calc(80px + 40px) !important;
+}
+.column-banner::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 50px;
+    background: #f5f2ed;
+    clip-path: ellipse(53% 100% at 50% 100%);
+}
+
+/* ギャラリー: ベージュ系 */
+.gallery {
+    background: #f5f2ed;
+    position: relative; overflow: hidden;
+    padding-bottom: calc(var(--section-padding) + 40px);
+}
+.gallery::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 50px;
+    background: var(--white);
+    clip-path: ellipse(55% 100% at 50% 100%);
+}
+
+/* 患者の声: 白 → 下に淡い緑波 */
+.testimonials {
+    position: relative; overflow: hidden;
+    padding-bottom: calc(var(--section-padding) + 40px);
+}
+.testimonials::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 50px;
+    background: #eef6f3;
+    clip-path: ellipse(52% 100% at 50% 100%);
+}
+
+/* 料金: 淡い緑 */
+.pricing {
+    background: #eef6f3;
+    position: relative; overflow: hidden;
+    padding-bottom: calc(var(--section-padding) + 40px);
+}
+.pricing::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 50px;
+    background: var(--white);
+    clip-path: ellipse(54% 100% at 50% 100%);
+}
+
+/* オンライン: 下波 */
+.online {
+    position: relative; overflow: hidden;
+    padding-bottom: calc(var(--section-padding) + 40px);
+}
+.online::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 50px;
+    background: var(--white);
+    clip-path: ellipse(55% 100% at 50% 100%);
+}
+
+/* アクセス: 白 → 下にベージュ波 */
+.access {
+    position: relative; overflow: hidden;
+    padding-bottom: calc(var(--section-padding) + 40px);
+}
+.access::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 50px;
+    background: #eef6f3;
+    clip-path: ellipse(53% 100% at 50% 100%);
+}
+
+/* お問い合わせ: 淡い緑 */
+.contact {
+    background: #eef6f3;
+}
+
+/* フッター上に波型の入り口 */
+.footer {
+    position: relative;
+}
+.footer::before {
+    content: '';
+    position: absolute; top: -25px; left: 0; right: 0;
+    height: 25px;
+    background: var(--gray-800);
+    clip-path: ellipse(55% 100% at 50% 0%);
+}
+
+/* --- 丸い背景装飾（各セクションに） --- */
+.about::before {
+    content: '';
+    position: absolute; top: 40px; left: -60px;
+    width: 220px; height: 220px;
+    background: radial-gradient(circle, rgba(74, 155, 140, 0.05) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+.services::before {
+    content: '';
+    position: absolute; top: 30px; right: -40px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(232, 184, 109, 0.04) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+.doctor::before {
+    content: '';
+    position: absolute; bottom: 80px; right: -50px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(74, 155, 140, 0.04) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+.testimonials::before {
+    content: '';
+    position: absolute; top: 30px; left: -40px;
+    width: 180px; height: 180px;
+    background: radial-gradient(circle, rgba(232, 184, 109, 0.04) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+.pricing::before {
+    content: '';
+    position: absolute; top: 40px; right: -50px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(74, 155, 140, 0.04) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+/* ヒーロー下にも波型 */
+.hero {
+    padding-bottom: calc(120px + 40px);
+}
+.hero::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 50px;
+    background: var(--background);
+    clip-path: ellipse(55% 100% at 50% 100%);
+    z-index: 2;
+}
